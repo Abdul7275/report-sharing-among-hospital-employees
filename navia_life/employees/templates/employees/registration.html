@@ -1,0 +1,52 @@
+{% extends 'employees/base.html' %}
+
+{% block body_block %}
+
+      <div class="container">
+        <div class="card" style="width:22rem; margin:auto; margin-top:2%;">
+          <h5 class="card-header" >Register Here</h5>
+          <div class="card-body">
+            <form enctype="multipart/form-data" method="post">
+              <div class="form-group">
+                {% csrf_token %}
+
+                  {{ user_form.username.errors }}
+                  <label for="{{ user_form.username.id_for_label }}">Username:</label>
+                  {{ user_form.username }}
+
+                  {{ user_form.email.errors }}
+                  <label for="{{ user_form.email.id_for_label }}">Email:</label>
+                  {{ user_form.email }}
+
+                  {{ user_form.password.errors }}
+                  <label for="{{ user_form.password.id_for_label }}">Password:</label>
+                  {{ user_form.password }}
+
+                  {{ profile_form.about_me.errors }}
+                  <label for="{{ profile_form.about_me.id_for_label }}">About Me:</label>
+                  {{ profile_form.about_me }}
+
+                  {{ profile_form.portfolio_site.errors }}
+                  <label for="{{ profile_form.portfolio_site.id_for_label }}">Portfolio URL:</label>
+                  {{ profile_form.portfolio_site }}
+
+                  {{ profile_form.type.errors }}
+                  <label for="{{ profile_form.type.id_for_label }}">Designation :</label>
+                  {{ profile_form.type }}
+
+                  {{ profile_form.profile_pic.errors }}
+                  <label for="{{ profile_form.profile_pic.id_for_label }}">Profile Pic:</label>
+                  {{ profile_form.profile_pic }}
+
+                  {{message}}<br><br>
+                <input type="submit" class="btn btn-primary" value="Register">
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-muted">
+            &copy;Designed and developed by Abdul Kalam
+          </div>
+        </div>
+      </div>
+
+{% endblock body_block %}

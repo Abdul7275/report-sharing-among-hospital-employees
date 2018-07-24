@@ -1,0 +1,17 @@
+{% extends "employees/base.html" %}
+
+{% block body_block %}
+
+  <div class="container">
+    <br><br>
+    <h1>Shared Reports with you are-</h1><br>
+    {% for report in reports  %}
+        <b>Report Title: </b>{{report.title|title}}<br>
+        <b>Report Description: </b>{{report.description}}<br>
+        <b>Shared BY: </b>{{report.user|title}}<br>
+        <a href="{{report.report_file.url}}">View Report</a>
+        <hr>
+    {% endfor %}
+  </div>
+
+{% endblock body_block %}

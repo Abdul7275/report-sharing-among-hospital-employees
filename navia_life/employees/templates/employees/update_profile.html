@@ -1,0 +1,24 @@
+{% extends 'employees/base.html' %}
+
+{% block body_block %}
+
+      <div class="container">
+        <div class="card" style="width:22rem; margin:auto; margin-top:2%;">
+          <h5 class="card-header" >Update Profile</h5>
+          <div class="card-body">
+            <form enctype="multipart/form-data" method="post">
+              <div class="form-group">
+                {% csrf_token %}
+                {{user_form.as_p}}
+                {{profile_form.as_p}}
+                <input type="submit" class="btn btn-primary" value="Update">
+              </div>
+            </form>
+          </div>
+          <div class="card-footer text-muted">
+            Designed and developed by Abdul Kalam
+          </div>
+        </div>
+      </div>
+
+{% endblock body_block %}

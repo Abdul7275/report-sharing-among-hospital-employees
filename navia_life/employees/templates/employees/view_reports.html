@@ -1,0 +1,21 @@
+{% extends "employees/base.html" %}
+
+{% block body_block %}
+<div class="container" text-align="center">
+  <br><h2>Reports uploaded by you are-</h2><br>
+  {% for value in val  %}
+    <b>Report Title: </b>{{value}}<br>
+    <b>Report Description: </b>{{value.description}}<br>
+    <a href="{{value.report_file.url}}">View Report</a>
+
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_table}}
+      <input type="hidden" name="idx" value="{{value.id}}" > &emsp;
+      <input type="submit" class="btn btn-primary"  value="Share">
+    </form>
+    <hr>
+  {% endfor %}
+</div>
+
+{% endblock body_block %}

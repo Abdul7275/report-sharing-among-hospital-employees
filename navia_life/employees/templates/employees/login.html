@@ -1,0 +1,31 @@
+{% extends "employees/base.html" %}
+
+{% block body_block %}
+
+  <div class="controller" >
+    <div class="card" style="width: 25rem; margin: auto; margin-top:3%;">
+      <h5 class="card-header">Please Login</h5>
+      <div class="card-body">
+        <div class="container">
+        <form action="{% url 'employees:user_login' %}" method="post">
+          <div class="form-group">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required> <br>
+            <input type="submit" class="btn btn-primary" value="Login">
+            {{message}}
+            <div class="text-muted">
+              Still not registered <a href="{% url 'employees:register' %}">click here</a>
+            </div>
+          </form>
+          </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      &copy;Designed and developed by Abdul Kalam
+    </div>
+  </div>
+
+{% endblock body_block %}
