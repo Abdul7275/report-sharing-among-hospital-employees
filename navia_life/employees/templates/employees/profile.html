@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-sm-5">
           <div class="card" style="width: 18rem;">
-            <img src="{{value.profile_pic.url}}" alt="{{user|title}}" width="100%" height="250">
+            <img src="{{value.profile_pic.get_url}}" alt="{{user|title}}" width="100%" height="250">
             <div class="card-body">
               <h5 class="card-title">{{user|title}}</h5>
               <p class="card-text">{{value.about_me}}</p>
